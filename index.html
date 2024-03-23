@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrkartenpreiskategorie</title>
+    <script>
+        // JavaScript-Code für die Auswertung des Alters und Bestimmung der Fahrkartenpreiskategorie
+        function bestimmeFahrkartenpreis() {
+            // Das Alter aus dem Eingabefeld lesen
+            var alter = parseInt(document.getElementById("alter").value);
+
+            // Überprüfen, ob das Alter kleiner als 6 ist
+            if (alter < 6) {
+                document.getElementById("ergebnis").innerHTML = "Die Fahrt ist kostenlos.";
+            }
+            // Überprüfen, ob das Alter zwischen 6 und 17 Jahre alt ist
+            else if (alter >= 6 && alter <= 17) {
+                document.getElementById("ergebnis").innerHTML = "Man fährt zum Kinderpreis.";
+            }
+            // Überprüfen, ob das Alter zwischen 18 und 66 Jahre alt ist
+            else if (alter >= 18 && alter <= 66) {
+                document.getElementById("ergebnis").innerHTML = "Man fährt zum Vollpreis.";
+            }
+            // Überprüfen, ob das Alter älter als 66 Jahre ist
+            else if (alter > 66) {
+                document.getElementById("ergebnis").innerHTML = "Man fährt zum Seniorenpreis.";
+            }
+            // Wenn das Alter nicht in die obigen Kategorien fällt, ist die Fahrt kostenpflichtig
+            else {
+                document.getElementById("ergebnis").innerHTML = "Die Fahrt ist kostenpflichtig.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Fahrkartenpreiskategorie</h1>
+    <label for="alter">Alter:</label>
+    <input type="number" id="alter" name="alter" min="0" required>
+    <button onclick="bestimmeFahrkartenpreis()">Preis bestimmen</button>
+    <p id="ergebnis"></p>
+</body>
+</html>
